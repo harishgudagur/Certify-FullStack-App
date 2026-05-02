@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask_cors import CORS
 
@@ -12,7 +14,15 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'secretkey'
 
-CORS(app)
+CORS(
+    app,
+    resources={
+        r"/*": {
+            "origins": "*"
+        }
+    }
+)
+
 
 db.init_app(app)
 
@@ -28,5 +38,6 @@ def home():
     return {"message": "Backend Running Successfully"}
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == '__main__': 
+    port = int(os.environ.get('PORT', 5000)) 
+    app.run( host='0.0.0.0', port=port )

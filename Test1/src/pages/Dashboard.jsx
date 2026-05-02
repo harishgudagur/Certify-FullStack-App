@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react'
 
 import API from '../api/api'
@@ -32,9 +33,8 @@ export default function Dashboard() {
 
     try {
 
-      const response = await API.get(
-        '/opportunities'
-      )
+      const response =
+        await API.get('/opportunities')
 
       setOpportunities(response.data)
 
@@ -242,7 +242,9 @@ export default function Dashboard() {
 
           </h2>
 
-          <p>Technology</p>
+          <p>
+            Technology
+          </p>
 
         </div>
 
@@ -260,7 +262,9 @@ export default function Dashboard() {
 
           </h2>
 
-          <p>Business</p>
+          <p>
+            Business
+          </p>
 
         </div>
 
@@ -422,7 +426,7 @@ export default function Dashboard() {
                 <div className="empty-state">
 
                   <h3>
-                    No opportunities yet
+                    🚀 No opportunities yet
                   </h3>
 
                   <p>
@@ -440,10 +444,13 @@ export default function Dashboard() {
                   .filter((item) =>
 
                     item.name
+
                       .toLowerCase()
 
                       .includes(
+
                         search.toLowerCase()
+
                       )
                   )
 
@@ -472,6 +479,18 @@ export default function Dashboard() {
         </div>
 
       </div>
+
+      <footer
+        style={{
+          textAlign: 'center',
+          marginTop: '40px',
+          color: '#6b7280'
+        }}
+      >
+
+        Qatar Foundation Admin Portal
+
+      </footer>
 
     </div>
   )

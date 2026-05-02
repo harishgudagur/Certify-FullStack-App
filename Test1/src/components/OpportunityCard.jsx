@@ -1,3 +1,4 @@
+
 export default function OpportunityCard({
 
   opportunity,
@@ -6,87 +7,154 @@ export default function OpportunityCard({
 
 }) {
 
+  const getCategoryColor = () => {
 
-return (
+    switch (opportunity.category) {
 
-  <div className="opportunity-card">
+      case 'Technology':
+        return '#dbeafe'
 
-    <h2>{opportunity.name}</h2>
+      case 'Business':
+        return '#dcfce7'
 
-  
-<p>
+      case 'Design':
+        return '#f3e8ff'
 
-  <strong>Category:</strong>
+      case 'Marketing':
+        return '#fef3c7'
 
-  <span
-    style={{
-      background:
-        opportunity.category === 'Technology'
-          ? '#dbeafe'
-          : opportunity.category === 'Business'
-          ? '#dcfce7'
-          : '#f3e8ff',
+      case 'Data Science':
+        return '#fee2e2'
 
-      color: '#111827',
+      default:
+        return '#e5e7eb'
+    }
+  }
 
-      padding: '6px 12px',
+  return (
 
-      borderRadius: '20px',
+    <div className="opportunity-card">
 
-      marginLeft: '10px',
-
-      fontSize: '14px'
-    }}
-  >
-
-    {opportunity.category}
-
-  </span>
-
-</p>
-
-
-    <p>
-      <strong>Duration:</strong>
-      {' '}
-      {opportunity.duration}
-    </p>
-
-    <p>
-      <strong>Start Date:</strong>
-      {' '}
-      {opportunity.start_date}
-    </p>
-
-    <p>
-      <strong>Description:</strong>
-      {' '}
-      {opportunity.description}
-    </p>
-
-    <p>
-      <strong>Skills:</strong>
-      {' '}
-      {opportunity.skills}
-    </p>
-
-    <div className="card-actions">
-
-      <button
-        onClick={() => onEdit(opportunity)}
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '16px'
+        }}
       >
-        Edit
-      </button>
 
-      <button
-        onClick={() => onDelete(opportunity.id)}
-      >
-        Delete
-      </button>
+        <h2>
+          {opportunity.name}
+        </h2>
+
+        <span
+          style={{
+
+            background:
+              getCategoryColor(),
+
+            padding: '8px 14px',
+
+            borderRadius: '20px',
+
+            fontSize: '14px',
+
+            fontWeight: '600'
+
+          }}
+        >
+
+          {opportunity.category}
+
+        </span>
+
+      </div>
+
+      <p>
+
+        <strong>Duration:</strong>
+
+        {' '}
+
+        {opportunity.duration}
+
+      </p>
+
+      <p>
+
+        <strong>Start Date:</strong>
+
+        {' '}
+
+        {opportunity.start_date}
+
+      </p>
+
+      <p>
+
+        <strong>Description:</strong>
+
+        {' '}
+
+        {opportunity.description}
+
+      </p>
+
+      <p>
+
+        <strong>Skills:</strong>
+
+        {' '}
+
+        {opportunity.skills}
+
+      </p>
+
+      <p>
+
+        <strong>Future Opportunities:</strong>
+
+        {' '}
+
+        {opportunity.future_opportunities}
+
+      </p>
+
+      <p>
+
+        <strong>Max Applicants:</strong>
+
+        {' '}
+
+        {opportunity.max_applicants}
+
+      </p>
+
+      <div className="card-actions">
+
+        <button
+          onClick={() =>
+            onEdit(opportunity)
+          }
+        >
+
+          Edit
+
+        </button>
+
+        <button
+          onClick={() =>
+            onDelete(opportunity.id)
+          }
+        >
+
+          Delete
+
+        </button>
+
+      </div>
 
     </div>
-
-  </div>
-)
-
+  )
 }

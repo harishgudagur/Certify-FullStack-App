@@ -1,0 +1,57 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+  font-family: Arial, sans-serif;
+
+  background: #f4f4f4;
+
+  padding: 20px;
+}
+
+form {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  max-width: 500px;
+
+  margin-bottom: 20px;
+}
+
+input,
+textarea,
+select {
+
+  padding: 10px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 5px;
+}
+
+button {
+
+  padding: 10px;
+
+  background: black;
+
+  color: white;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+button:hover {
+
+  opacity: 0.9;
+}
